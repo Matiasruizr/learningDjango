@@ -62,3 +62,25 @@ Cuando se ejecuta python3 manage.py por cada [nombre_app] se visualizarán los d
 
 # Entonces, que es Django?
 Es una interfaz para conectar URL con lógica, usando python
+
+# Creando una primera aplicación en Django
+
+Para crear una primera App en Django, podemos crearla usando python manage.py startapp nombreapp
+Podemos iniciar un proyecto con python manage.py runserver
+
+
+# Trabajando con APIS
+  Para trabajar con api importamos json
+    import json
+  
+  creamos una variable como la siguiente, a la cual podemos pasar variables, o arrays
+
+     data = {
+          'status' : 'ok',
+          'numbers': numbers,
+          'message': 'Integers sorted succesfully.'
+      }
+    
+   Finalmente desde la respuesta transformamos esta "data" en json con json.dumps y mostramos esto como contenido tipo 'apllication/json'
+   
+       return HttpResponse( json.dumps(data, indent= 4), content_type='application/json')
