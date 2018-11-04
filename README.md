@@ -64,7 +64,7 @@ Cuando se ejecuta python3 manage.py por cada [nombre_app] se visualizarán los d
 Es una interfaz para conectar URL con lógica, usando python
 
 # Creando una primera aplicación en Django
-
+Creamos un proyecto con django-admin 
 Para crear una primera App en Django, podemos crearla usando python manage.py startapp nombreapp
 Podemos iniciar un proyecto con python manage.py runserver
 
@@ -84,3 +84,56 @@ Podemos iniciar un proyecto con python manage.py runserver
    Finalmente desde la respuesta transformamos esta "data" en json con json.dumps y mostramos esto como contenido tipo 'apllication/json'
    
        return HttpResponse( json.dumps(data, indent= 4), content_type='application/json')
+       
+       
+   # Template system
+   Podemos utilizar html con python incrustado:
+   simplemente en un proyecto creamos la carpeta templates y agregamos el html
+   desde nuestras vistas tenemos que retornar el template! y pasarle por ese mismo return render() todos las variables, listas, etc que utilizemos en esa vista.
+   Ejemplo:
+      return render(request,'feed.html', {'posts': posts})
+      
+   Para usar codigo python en este html simplemente escribimos {% %}
+   Y en caso de imprimir un valor {{ }}
+   
+   # MTV => MVC:
+   Django utiliza un patron de diseño llamado MTV
+    Views + Urls => Controller
+    Templates => View
+    Models => Model
+          **Patrones de diseño: Solucion reutilizable a un problema comun **
+   
+   
+   # Conectar a BDD
+     DATABASES = {
+      'default': {
+          'ENGINE': 'django.db.backends.postgresql',
+          'NAME': 'mydatabase',
+          'USER': 'mydatabaseuser',
+          'PASSWORD': 'mypassword',
+          'HOST': '127.0.0.1',
+          'PORT': '5432',
+      }
+  }
+  https://docs.djangoproject.com/en/2.0/ref/settings/#databases
+  
+  # Crear un Modelo
+    class User(models.Model):
+      email = models.EmailField()
+      password = models.CharField()
+
+      first_name =  models.CharField()
+      last_name =  models.CharField()
+
+      bio =  models.TextField()
+
+      birthdate =  models.DateField()
+
+      create = models.DateTimeField()
+      modified = models.DateTimeField()
+      
+  
+  Referencias tipos de datos https://docs.djangoproject.com/en/2.0/ref/models/fields/
+  
+  Creamos la migracion con python manage.py makemigrations
+  Aplicamos la migracion con python manage.py migrate
