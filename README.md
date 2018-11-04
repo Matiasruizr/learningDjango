@@ -137,3 +137,49 @@ Podemos iniciar un proyecto con python manage.py runserver
   
   Creamos la migracion con python manage.py makemigrations
   Aplicamos la migracion con python manage.py migrate
+  
+  # ORM
+  Podemos crear objetos y manejar datos desde el sheell de django:
+  python manage.py shell
+  
+  
+  Podemos instanciar una clase
+    matias = User()
+    matias.first_name = 'Matias'
+    matias.last_name = 'Ruiz'
+    matias.save() ** Sin esto no queda guardado en la BdD!
+  
+  Consultas frecuentes con ORM:
+  https://docs.djangoproject.com/en/2.0/topics/db/queries/
+  
+  
+  
+  
+  
+  
+ # Glosario
+ Glosario
+ORM: Object-relational mapping. Es el encargado de permitir
+el acceso y control de una base de datos relacional a través de
+una abstracción a clases y objetos.
+
+Templates: Archivos HTML que permiten la inclusión y ejecución
+de lógica especial para la presentación de datos.
+
+Modelo: Parte de un proyecto de Django que se encarga de estructurar
+las tablas y propiedades de la base de datos a través de clases de Python.
+
+Vista: Parte de un proyecto de Django que se encarga de la
+lógica de negocio y es la conexión entre el template y el modelo.
+
+App: Conjunto de código que se encarga de resolver una parte
+muy específica del proyecto, contiene sus modelos, vistas, urls, etc.
+
+Patrón de diseño: Solución común a un problema particular.
+
+
+# Admin de Python
+Creamos un usuario con python manage.py createsuperuser
+
+Ahora accedemos desde url/admin/ con las credenciales creadas anteriormente
+  
